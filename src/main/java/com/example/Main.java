@@ -26,7 +26,10 @@ public static void main(String[] args) throws Exception {
         panel.add(button);
         //end
 
-        mainFrame.add(panel, BorderLayout.CENTER);
+        mainFrame.add(panel, BorderLayout.NORTH);
+        panel.setVisible(true);
+        mainFrame.setVisible(true);
+
 
 
         Long temperature = APICaller.main_api(0);
