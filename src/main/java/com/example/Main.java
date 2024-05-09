@@ -14,7 +14,7 @@ public static void main(String[] args) throws Exception {
 
 
          //additions for text input
-        JLabel label1 = new JLabel("When's you next class? (Input as hh:mm am/pm)");
+        JLabel label1 = new JLabel("When's you next class? (Input as hh:mm AM/PM)");
         label1.setForeground (Color.red);
         panel.add(label1);
         JTextField textField = new JTextField(20);
@@ -23,14 +23,11 @@ public static void main(String[] args) throws Exception {
         button.addActionListener(e -> {
             String userInput = textField.getText();
             JOptionPane.showMessageDialog(mainFrame, "User Input: " + userInput);
-
-            
         });
         panel.add(button);
-
         //end
 
-        mainFrame.add(panel, BorderLayout.NORTH);
+        mainFrame.add(panel, BorderLayout.CENTER);
         panel.setVisible(true);
         mainFrame.setVisible(true);
 
