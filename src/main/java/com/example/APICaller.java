@@ -1,11 +1,8 @@
 package com.example;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
-import com.github.cliftonlabs.json_simple.JsonArray;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -13,7 +10,8 @@ import org.json.simple.parser.JSONParser;
 public class APICaller {
 
     public static int HoursAway = 4;
-    public static void main(String[] args) {
+
+    public String main_api(String[] args, int HoursAway) {
         try {
             // Create a URL object with the API endpoint
             URL url = new URL("https://api.weather.gov/gridpoints/SLC/103,150/forecast/hourly");
@@ -53,14 +51,16 @@ public class APICaller {
                 //Get the required data using its key
                 //System.out.println("printing" + obj.get("periods"));
 
-
                 JSONArray arr = (JSONArray) obj.get("periods");
                 JSONObject new_ob = (JSONObject) arr.get(HoursAway);
+                String returnString = (String) new_ob.get("temperature");
                 System.out.println(new_ob.get("temperature"));
 
+                return returnString;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
