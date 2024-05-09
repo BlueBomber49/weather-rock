@@ -12,7 +12,7 @@ public class APICaller {
     //public static int HoursAway = 4;
 
 
-    public static Long main_api(int HoursAway) {
+    public static String main_api(int HoursAway) {
 
         try {
             // Create a URL object with the API endpoint
@@ -56,10 +56,12 @@ public class APICaller {
                 JSONArray arr = (JSONArray) obj.get("periods");
                 JSONObject new_ob = (JSONObject) arr.get(HoursAway);
                 Long returnString = (Long) new_ob.get("temperature");
+                String temp = returnString.toString();
+                String forecast = (String) new_ob.get("shortForecast");
                 //System.out.println(new_ob.get("temperature"));
-
-
-                return returnString;
+                String returnString2 = " it will be " + temp + " Degrees Fahrenheit. Your forecast is " + forecast + "!";
+                
+                return returnString2;
             }
         } catch (Exception e) {
             e.printStackTrace();

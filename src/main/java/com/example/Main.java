@@ -48,11 +48,15 @@ public static void main(String[] args) throws Exception {
                 int hours_till_class = class_hour - cur_hour;
                 System.out.println(hours_till_class);
 
-                Long temperature = APICaller.main_api(hours_till_class);
-                System.out.println(temperature);
+                String text = APICaller.main_api(hours_till_class);
 
-                
-                JOptionPane.showMessageDialog(mainFrame, "At " + userInput + " it will be " + temperature.toString() + " Degrees Fahrenheit");
+                if (text == null) {
+                    JOptionPane.showMessageDialog(mainFrame, "Please enter a valid time!");
+                } else {
+                    JOptionPane.showMessageDialog(mainFrame, "At " + userInput + "," + text);
+                }
+
+            
             } else {
                 System.out.println("Input does not match the regex pattern.");
                 JOptionPane.showMessageDialog(mainFrame, "Your input '" + userInput + "' was not a valid time. Please enter a time with the format 'HH:MM AM|PM'");
