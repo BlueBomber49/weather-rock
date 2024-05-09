@@ -12,8 +12,18 @@ public static void main(String[] args) throws Exception {
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
         panel.setBackground(Color.blue);
 
-        Button button = new Button("button");
+
+        //additions for text input
+        JTextField textField = new JTextField(20);
+        panel.add(textField);
+        JButton button = new JButton("Submit");
+        button.addActionListener(e -> {
+            String userInput = textField.getText();
+            JOptionPane.showMessageDialog(mainFrame, "User Input: " + userInput);
+        });
         panel.add(button);
+        //end
+
         mainFrame.add(panel, BorderLayout.CENTER);
         
     }
