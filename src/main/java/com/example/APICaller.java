@@ -11,7 +11,7 @@ public class APICaller {
 
     public static int HoursAway = 4;
 
-    public String main_api(String[] args, int HoursAway) {
+    public static Long main_api(int HoursAway) {
         try {
             // Create a URL object with the API endpoint
             URL url = new URL("https://api.weather.gov/gridpoints/SLC/103,150/forecast/hourly");
@@ -53,8 +53,8 @@ public class APICaller {
 
                 JSONArray arr = (JSONArray) obj.get("periods");
                 JSONObject new_ob = (JSONObject) arr.get(HoursAway);
-                String returnString = (String) new_ob.get("temperature");
-                System.out.println(new_ob.get("temperature"));
+                Long returnString = (Long) new_ob.get("temperature");
+                //System.out.println(new_ob.get("temperature"));
 
                 return returnString;
             }
