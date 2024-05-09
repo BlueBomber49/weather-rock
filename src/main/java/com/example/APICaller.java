@@ -9,7 +9,7 @@ import org.json.simple.parser.JSONParser;
 
 public class APICaller {
 
-    public static int HoursAway = 4;
+    //public static int HoursAway = 4;
 
 
     public static Long main_api(int HoursAway) {
