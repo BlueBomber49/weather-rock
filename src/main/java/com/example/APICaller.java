@@ -11,6 +11,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class APICaller {
+
+    public static int HoursAway = 4;
     public static void main(String[] args) {
         try {
             // Create a URL object with the API endpoint
@@ -53,7 +55,7 @@ public class APICaller {
 
 
                 JSONArray arr = (JSONArray) obj.get("periods");
-                JSONObject new_ob = (JSONObject) arr.get(0);
+                JSONObject new_ob = (JSONObject) arr.get(HoursAway);
                 System.out.println(new_ob.get("temperature"));
 
             }
