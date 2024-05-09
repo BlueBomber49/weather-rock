@@ -13,7 +13,10 @@ public static void main(String[] args) throws Exception {
         panel.setBackground(Color.blue);
 
 
-        //additions for text input
+         //additions for text input
+        JLabel label1 = new JLabel("When's you next class? (Input as hh:mm am/pm)");
+        label1.setForeground (Color.red);
+        panel.add(label1);
         JTextField textField = new JTextField(20);
         panel.add(textField);
         JButton button = new JButton("Submit");
@@ -24,6 +27,7 @@ public static void main(String[] args) throws Exception {
             
         });
         panel.add(button);
+
         //end
 
         mainFrame.add(panel, BorderLayout.NORTH);
